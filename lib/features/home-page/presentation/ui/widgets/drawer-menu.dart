@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/all-orders.dart';
+import 'package:tailor_app/features/home-page/presentation/ui/all-orders/order-detail.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/orders.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/dashboard-screen.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/home.dart';
@@ -118,7 +119,16 @@ class _DrawerScreenState extends State<DrawerScreen> {
             endIndent: 32,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => OrderInfo(
+                    authToken: widget.authToken,
+                  ),
+                ),
+              );
+            },
             child: ListTile(
               title: Text('Rate Us').text.white.size(20).make(),
               leading: Icon(Icons.star, color: Colors.white),

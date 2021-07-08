@@ -1,19 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:tailor_app/features/notification-material/presentation/state/local-notification-services.dart';
-import 'package:tailor_app/features/notification-material/presentation/ui/notification-page.dart';
-import 'package:tailor_app/features/signin-signup/presentation/ui/login-page.dart';
-import 'package:tailor_app/features/signin-signup/presentation/ui/signup.dart';
-import 'features/home-page/presentation/ui/all-orders/all-orders.dart';
-import 'features/home-page/presentation/ui/all-orders/orders.dart';
-import 'features/home-page/presentation/ui/dashboard-screen.dart';
-import 'features/home-page/presentation/ui/home.dart';
 import 'package:get/get.dart';
 
-import 'features/home-page/presentation/ui/test.dart';
-import 'features/home-page/presentation/ui/widgets/grid-detail.dart';
-import 'features/notification-material/presentation/ui/notification-green.dart';
-import 'features/notification-material/presentation/ui/notification-red.dart';
 import 'features/signin-signup/presentation/ui/signin.dart';
 import 'package:firebase_core/firebase_core.dart';
 

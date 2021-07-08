@@ -4,12 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/dashboard-screen.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'widgets/pallete.dart';
-import 'widgets/password_input.dart';
-import 'widgets/rounder_button.dart';
-import 'widgets/text-field_input.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 class SignIn extends StatefulWidget {
@@ -62,10 +57,9 @@ class _SignInState extends State<SignIn> {
                               .makeCentered(),
                         ],
                       ),
-                      SizedBox(height: 60.0),
-                  //   SizedBox(
-                  //     ///height: size.width * 0.1,
-                  //   ),
+                      SizedBox(
+                        height: size.width * 0.1,
+                      ),
                       Column(
                         children: [
                           Container(
@@ -95,7 +89,7 @@ class _SignInState extends State<SignIn> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 20.0),
+                          SizedBox(height: 30.0),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10.0),
                             child: Container(
@@ -132,7 +126,7 @@ class _SignInState extends State<SignIn> {
                             height: 25,
                           ),
 
-                          //////signin button
+                          ///signin button
                           //////emailController.text == "" || passwordController.text == "" ? null :
                           Container(
                             height: size.height * 0.08,
@@ -254,25 +248,10 @@ class _SignInState extends State<SignIn> {
   ///   }
   /// }
 
-  ///
-  /// _save(String accessToken) async {
-  ///   final prefs = await SharedPreferences.getInstance();
-  ///   final key = '_accessToken';
-  ///   final value = accessToken;
-  ///   prefs.setString(key, value);
-  /// }
-
-  /// read() async {
-  ///   final prefs = await SharedPreferences.getInstance();
-  ///   final key = '_accessToken';
-  ///   final value = prefs.get(key ) ?? 0;
-  ///   print('read : $value');
-  /// }
-  ///
   Future<void> login() async {
     Map<String, String> bodyParamsMap = {
-      "email": "bsyed6583@gmail.com",
-      "password": "123456"
+      "email": "$email",
+      "password": "$password"
     };
 
     final encodedBody = json.encode(bodyParamsMap);

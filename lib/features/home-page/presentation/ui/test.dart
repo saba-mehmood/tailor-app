@@ -5,8 +5,14 @@ import 'package:tailor_app/features/home-page/presentation/ui/widgets/drawer-men
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/grid-cell.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/model/model-class.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/network-request.dart';
+import 'package:tailor_app/features/home-page/presentation/ui/widgets/pending.dart';
+import 'package:tailor_app/features/signin-signup/presentation/ui/signin.dart';
+import 'dart:async';
+import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
+import 'package:flutter/services.dart';
 import 'widgets/grid-detail.dart';
 
 ///Future<Post> fetchPost() async {
@@ -49,7 +55,7 @@ class ServiceCall extends StatefulWidget {
 }
 
 class _ServiceCallState extends State<ServiceCall> {
-  //////creating gridview
+  ///creating gridview
   gridView(AsyncSnapshot<List<Home>> snapshot) {
     return Padding(
       padding: EdgeInsets.all(5),
