@@ -1,18 +1,18 @@
 class Order {
   int albumId;
   int id;
-  String title;
-  String url;
+  String orderNo;
+  String address;
   String thumbnailUrl;
   String description;
 
-  Order({this.albumId, this.id, this.title, this.url, this.thumbnailUrl,this.description});
+  Order({this.albumId, this.id, this.orderNo, this.address, this.thumbnailUrl,this.description});
 
   Order.fromJson(Map<String, dynamic> json) {
     albumId = json['albumId'];
     id = json['id'];
-    title = json['title'];
-    url = json['url'];
+    orderNo = json['orderNo'];
+    address = json['address'];
     thumbnailUrl = json['thumbnailUrl'];
     description = json['description'];
   }
@@ -21,8 +21,8 @@ class Order {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['albumId'] = this.albumId;
     data['id'] = this.id;
-    data['title'] = this.title;
-    data['url'] = this.url;
+    data['orderNo'] = this.orderNo;
+    data['address'] = this.address;
     data['thumbnailUrl'] = this.thumbnailUrl;
     data['description'] = this.description;
     return data;

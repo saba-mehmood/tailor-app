@@ -187,34 +187,9 @@ class _SignInState extends State<SignIn> {
     );
   }
 
-  ///signin method
 
-  /// signIn(String email, String password) async {
-  ///   var response = await http.post(Uri.parse("https://softalogics.com/tailor/api/login"), body: {
-  ///     "email": email,
-  ///     "password": password
-  ///   });
-  ///   var jsonResponse = null;
-  ///   if (response.statusCode == 200) {
-  ///     jsonResponse = json.decode(response.body);
-  ///     if (jsonResponse != null) {
-  ///       print(jsonResponse['token']);
-  ///       print(response.body);
-  ///       save(jsonResponse["token"]);// for Printing the tok
-  ///       // Navigator used to enter inside app if the authentication is correct
-  ///       Navigator.of(context).pushAndRemoveUntil(
-  ///           MaterialPageRoute(
-  ///             builder: (BuildContext context) => ServiceCall(),
-  ///           ),
-  ///               (Route<dynamic> route) => false);
-  ///     }
-  ///   } else {
-  ///     print("Error message like email or password wrong!!!!"); // Toast
 
-  ///   }
-  /// }
-
-  ///loginmethod 2
+  ///loginmethod
   Map<String, String> get _headerOption => {"Content-Type": "application/json"};
 
   /// Future<void> login() async {

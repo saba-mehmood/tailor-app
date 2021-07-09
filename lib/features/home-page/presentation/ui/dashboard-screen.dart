@@ -69,7 +69,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               child: CupertinoActivityIndicator(),
             )
           : Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 50.0,left: 8.0,right: 8.0),
               child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
@@ -95,7 +95,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       ),
                       decoration: BoxDecoration(
                           color: colorAccordingToStatus(index),
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(2)),
                     );
                   }),
             ),
@@ -104,13 +104,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
 
   Color colorAccordingToStatus(int index) {
     if (index == 0) {
-      return Colors.green;
+      return Color(0xFFB19069);
     } else if (index == 1) {
-      return Colors.grey;
+      return Color(0xFFB19069);
     } else if (index == 2) {
-      return Colors.blue;
+      return Color(0xFFB19069);
     } else {
-      return Colors.red;
+      return Color(0xFFB19069);
     }
   }
 

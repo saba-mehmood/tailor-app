@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/all-orders.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/order-detail.dart';
-import 'package:tailor_app/features/home-page/presentation/ui/all-orders/orders.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/dashboard-screen.dart';
-import 'package:tailor_app/features/home-page/presentation/ui/home.dart';
 import 'package:tailor_app/features/signin-signup/presentation/ui/signin.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerScreen extends StatefulWidget {

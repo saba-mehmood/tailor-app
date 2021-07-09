@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/order-detail.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/drawer-menu.dart';
 import 'package:tailor_app/models/AllOrdersModel.dart';
-import 'package:tailor_app/models/ApiResponse.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class OrderScreen extends StatefulWidget {
@@ -20,7 +19,6 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   bool showLoading = true;
 
-  APIResponse<List<OrdersListModel>> _apiResponse;
 
   final http.Client httpClient = http.Client();
   OrdersListModel ordersListModel;
@@ -96,7 +94,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (_) => OrderInfo(authToken: widget.authToken,
-                              Id: ordersListModel.orders[index].id)));
+                              iD: ordersListModel.orders[index].id)));
                     },
                   ),
                 );
