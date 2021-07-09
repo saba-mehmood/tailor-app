@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tailor_app/features/home-page/presentation/ui/all-orders/model/model-allorders.dart';
 import 'package:tailor_app/models/AllOrdersModel.dart';
 import 'package:tailor_app/models/OrdersDetailModel.dart';
 import 'styles.dart';
@@ -101,7 +100,7 @@ class _OrderInfoState extends State<OrderInfo> {
     if (response.statusCode == 200) {
       ordersListModel = OrdersListModel.fromJson(json.decode(response.body));
       
-     print("Order List ====== ${ordersListModel.orders.length}");
+    // print("Order List ====== ${ordersListModel.orders.length}");
       setState(() {
         showLoading = false;
       });
@@ -115,9 +114,14 @@ class _OrderInfoState extends State<OrderInfo> {
   }
 
   @override
+  // ignore: must_call_super
   void initState() {
-    getInfo(widget.iD);
-    super.initState();
+    getInfo(widget.iD)
+        .then((response) {
+      setState(() {
+        showLoading = false;
+      });
+    });
   }
 
   @override
