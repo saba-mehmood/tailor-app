@@ -33,7 +33,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
       child: Container(
         color: Color(0xFFB19069),
         child: ListView(children: [
-          Text('Tailor Shop')
+          Text('Book Tailor')
               .text
               .size(30)
               .bold

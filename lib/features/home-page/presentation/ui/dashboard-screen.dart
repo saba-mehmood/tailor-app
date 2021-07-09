@@ -56,7 +56,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         backgroundColor: Color(0xFFB19069),
         title: Padding(
           padding: const EdgeInsets.only(right: 90),
-          child: Text('Tailor Shop').text.uppercase.size(20).bold.white.make(),
+          child: Text('Book Tailor').text.uppercase.size(20).bold.white.make(),
         ),
       ),
       drawer: DrawerScreen(
