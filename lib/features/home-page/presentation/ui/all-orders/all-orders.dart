@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:tailor_app/features/home-page/presentation/ui/all-orders/detail-order.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/all-orders/order-detail.dart';
+import 'package:tailor_app/features/home-page/presentation/ui/all-orders/orders-detail.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/drawer-menu.dart';
 import 'package:tailor_app/models/AllOrdersModel.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -69,37 +71,40 @@ class _OrderScreenState extends State<OrderScreen> {
           ? Center(
               child: CupertinoActivityIndicator(),
             )
-          : ListView.builder(
-              itemCount: ordersListModel.orders?.length ?? 0,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListTile(
-                    tileColor: Colors.white,
-                    leading: CircleAvatar(
-                      backgroundColor: Color(0xFFB19069),
-                      child: Center(
-                        child: Text("$index"),
+          : InkWell(
+            child: ListView.builder(
+                itemCount: ordersListModel.orders?.length ?? 0,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      tileColor: Colors.white,
+                      leading: CircleAvatar(
+                        backgroundColor: Color(0xFFB19069),
+                        child: Center(
+                          child: Text("$index"),
+                        ),
                       ),
+                      title: Text(
+                        ordersListModel.orders[index].customer.name,
+                      ),
+                      subtitle: Text(
+                        ordersListModel.orders[index].address,
+                      ),
+                      trailing: Text(
+                        ordersListModel.orders[index].orderNo,
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => DetailScreen(orders: ordersListModel.orders[index],)));
+                        ///authToken: widget.authToken,iD: ordersListModel.orders[index].id
+
+                      },
                     ),
-                    title: Text(
-                      ordersListModel.orders[index].customer.name,
-                    ),
-                    subtitle: Text(
-                      ordersListModel.orders[index].address,
-                    ),
-                    trailing: Text(
-                      ordersListModel.orders[index].orderNo,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (_) => OrderInfo(authToken: widget.authToken,
-                              iD: ordersListModel.orders[index].id)));
-                    },
-                  ),
-                );
-              },
-            ),
+                  );
+                },
+              ),
+          ),
     );
   }
 }

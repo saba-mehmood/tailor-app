@@ -53,13 +53,12 @@ import 'package:http/http.dart' as http;
            textAlign: TextAlign.left,
            style: Styles.headerLarge));
  }
- Widget _sectionText(String text){
+ Widget _sectionText(String text) {
    return Container(
-       padding: EdgeInsets.fromLTRB(25.0,15.0,25.0,15.0),
-       child:Text(text, style: Styles.textDefault,)
+       padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
+       child: Text(text, style: Styles.textDefault,)
    );
  }
-
 /// Widget _bannerImage(String url, double height){
 ///   return Container(
 ///       constraints: BoxConstraints.tightFor(height: height),
@@ -140,7 +139,7 @@ class _OrderInfoState extends State<OrderInfo> {
         child: CupertinoActivityIndicator(),
       )
           : ListView.builder(
-        itemCount: ordersListModel.orders?.length ?? 0,
+        itemCount: ordersListModel.orders.length ,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
