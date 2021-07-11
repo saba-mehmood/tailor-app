@@ -7,6 +7,13 @@ import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 import io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService;
 
+
+import io.flutter.app.FlutterApplication;
+import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.plugin.common.PluginRegistry;
+
+import io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService;
+
 public class Application extends FlutterApplication implements PluginRegistry.PluginRegistrantCallback {
     // ...
     @Override

@@ -20,7 +20,7 @@ dependencies:
   datetime_picker_formfield: ^1.0.0
   firebase_messaging:
   flutter_local_notifications:
-  firebase_core:
+  firebase_core: ^0.7.0
 
 dev_dependencies:
   flutter_test:
