@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:tailor_app/features/home-page/presentation/ui/dashboard-screen.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -225,9 +226,11 @@ class _SignInState extends State<SignIn> {
   /// }
 
   Future<void> login() async {
+    String token = await FirebaseMessaging.instance.getToken();
     Map<String, String> bodyParamsMap = {
       "email": "$email",
-      "password": "$password"
+      "password": "$password",
+      "device_token":"$token"
 
     };
 
@@ -237,6 +240,7 @@ class _SignInState extends State<SignIn> {
       body: encodedBody,
       headers: _headerOption,
     );
+    print(response.body);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       print(json.decode(response.body));
@@ -253,6 +257,11 @@ class _SignInState extends State<SignIn> {
           ),
           (Route<dynamic> route) => false);
     } else {
+      setState(() {
+        _isLoading = false;
+        email = emailController.text.trim();
+        password = passwordController.text.trim();
+      });
       print("handle error");
     }
   }
