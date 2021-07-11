@@ -8,7 +8,7 @@
 
     <application
         android:label="Foodly Restaurant App"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/appicon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
