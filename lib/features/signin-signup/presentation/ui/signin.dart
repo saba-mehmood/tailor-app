@@ -140,6 +140,7 @@ class _SignInState extends State<SignIn> {
                             child: RaisedButton(
                                 color: kBrown,
                                 onPressed: () async {
+
                                   setState(() {
                                     _isLoading = true;
                                     email = emailController.text.trim();
@@ -227,6 +228,7 @@ class _SignInState extends State<SignIn> {
     Map<String, String> bodyParamsMap = {
       "email": "$email",
       "password": "$password"
+
     };
 
     final encodedBody = json.encode(bodyParamsMap);
