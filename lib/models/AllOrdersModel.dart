@@ -51,16 +51,16 @@ class Orders {
   int areaId;
   String address;
   String fabricDeliveryMethod;
-  Null shippingCost;
+  int shippingCost;
   int total;
   int customerId;
   int tailorId;
-  Null deliveryBoyId;
+  int deliveryBoyId;
   int status;
   int rating;
   String review;
   String reviewDate;
-  Null reason;
+  String reason;
   String createdAt;
   String updatedAt;
   States states;
@@ -68,7 +68,7 @@ class Orders {
   Area area;
   Tailor tailor;
   Customer customer;
-  Null deliveryBoy;
+  dynamic deliveryBoy;
 
   Orders(
       {this.id,
@@ -298,7 +298,7 @@ class Tailor {
   int roleId;
   String image;
   int profileComplete;
-  int ratings;
+  var ratings;
   Null day;
   Null month;
   Null year;
@@ -383,7 +383,7 @@ class Customer {
   int roleId;
   Null image;
   int profileComplete;
-  Null ratings;
+  double ratings;
   String day;
   String month;
   String year;

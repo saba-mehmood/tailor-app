@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:http/http.dart' as http;
 import 'package:tailor_app/features/home-page/presentation/ui/widgets/drawer-menu.dart';
 import 'package:tailor_app/models/HomeScreenModel.dart';
@@ -17,7 +19,6 @@ class DashBoardScreen extends StatefulWidget {
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
   bool showLoading = true;
-
   final http.Client httpClient = http.Client();
   HomeScreenModel homeScreenModel;
   Future<void> getData() async {
@@ -44,8 +45,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
 
   @override
   void initState() {
-    getData();
+
     super.initState();
+    getData();
+    ForegroundNotifi();
   }
 
   @override
@@ -136,5 +139,46 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     } else {
       return homeScreenModel.canceled.toString();
     }
+  }
+  ForegroundNotifi() async {
+
+    print("Fcm");
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: true,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async{
+      final title = message.notification.title ?? '';
+      final body = message.notification.body ?? '';
+      print('Got a message whilst in the foreground!');
+
+      FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+      var initializationSettingsAndroid =
+      AndroidInitializationSettings('@drawable/appicon');
+      var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+      flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+
+      var androidPlatformChannelSpecifics =
+      AndroidNotificationDetails('100', 'DLite', 'DLite');
+      var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
+      await flutterLocalNotificationsPlugin.show(
+          100, title, body, platformChannelSpecifics);
+
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+      }
+    });
+
   }
 }

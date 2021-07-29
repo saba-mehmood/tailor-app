@@ -86,7 +86,7 @@ class _OrderScreenState extends State<OrderScreen> {
                         ),
                       ),
                       title: Text(
-                        ordersListModel.orders[index].customer.name,
+                        ordersListModel.orders[index].tailor.name,
                       ),
                       subtitle: Text(
                         ordersListModel.orders[index].address,
